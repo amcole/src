@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>QuickProfile</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Vendormultilocation</th>
+                <td>{{ entity.vendorMultiLocation }}</td>
+            </tr>
+            <tr>
+                <th>Vendorindustry</th>
+                <td>{{ entity.vendorIndustry }}</td>
+            </tr>
+            <tr>
+                <th>Publiccompany</th>
+                <td>{{ entity.publicCompany }}</td>
+            </tr>
+            <tr>
+                <th>Numlevelstoowner</th>
+                <td>{{ entity.numLevelsToOwner }}</td>
+            </tr>
+            <tr>
+                <th>Desccompanyculture</th>
+                <td>{{ entity.descCompanyCulture }}</td>
+            </tr>
+            <tr>
+                <th>Peerlessservice</th>
+                <td>{{ entity.peerlessService }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ entity.client }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('quickprofile') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('quickprofile_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

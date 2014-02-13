@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>QuickProfile list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Vendormultilocation</th>
+                <th>Vendorindustry</th>
+                <th>Publiccompany</th>
+                <th>Numlevelstoowner</th>
+                <th>Desccompanyculture</th>
+                <th>Peerlessservice</th>
+                <th>Client</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('quick_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.vendorMultiLocation }}</td>
+                <td>{{ entity.vendorIndustry }}</td>
+                <td>{{ entity.publicCompany }}</td>
+                <td>{{ entity.numLevelsToOwner }}</td>
+                <td>{{ entity.descCompanyCulture }}</td>
+                <td>{{ entity.peerlessService }}</td>
+                <td>{{ entity.client }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('quick_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('quick_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('quick_create') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

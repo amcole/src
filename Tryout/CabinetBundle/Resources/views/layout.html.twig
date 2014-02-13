@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+ {% block theme_styles %}
+  	    {% stylesheets 
+		 	'bundles/cabinet/assets/css/style-metronic.css' 
+		 	'bundles/cabinet/assets/css/style.css'
+		 	'bundles/cabinet/assets/css/style-responsive.css'
+		 	'bundles/cabinet/assets/css/plugins.css'
+  			filter='cssrewrite' %}
+		 	 <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+ 	     {% endstylesheets %}
+ 
+   	     {% stylesheets 
+ 	        'bundles/cabinet/assets/css/themes/default.css' 
+  			filter='cssrewrite' %}
+ 			<link href="{{ asset_url }}" rel="stylesheet" type="text/css" id="style_color" />
+ 	     {% endstylesheets %}
+ 
+		{% stylesheets 
+		 	'bundles/cabinet/assets/css/pages/profile.css'
+		 	'bundles/cabinet/assets/css/custom.css'
+  			filter='cssrewrite' %}
+ 			<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+ 		{% endstylesheets %} 
+ 		
+{% endblock %}
+

@@ -1,0 +1,102 @@
+{% extends 'CabinetBundle::Modallayout.html.twig' %} 
+
+			{% block page_header %}
+			<div class="row">
+				<div class="col-md-12">
+					{# <!-- BEGIN PAGE TITLE & BREADCRUMB--> #}
+					{% block page_title_and_breadcrumb %}
+					<h3 class="page-title">
+					Vendor Profile Page <small>Vendor Profile Page</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li class="btn-group">
+							<button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+							<span>
+								Actions
+							</span>
+							<i class="fa fa-angle-down"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li>
+									<a href="#">Action</a>
+								</li>
+								<li>
+									<a href="#">Another action</a>
+								</li>
+								<li>
+									<a href="#">Something else here</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html">Home</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">Layouts</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">Blank Page</a>
+						</li>
+					</ul>
+					{% endblock %}
+					{# <!-- END PAGE TITLE & BREADCRUMB-{# <!--#}
+				</div>
+			</div>
+			{% endblock %}
+			{# <!-- END PAGE HEADER--> #}
+			{# <!-- BEGIN PAGE CONTENT--> #}
+			{% block page_content %} 
+			<div class="row">
+				<div class="col-md-12">
+					<div class="note note-success">
+						<h4 class="block">Vendor</h4>
+						<p>
+						</p>
+					</div>
+					<!-- BEGIN PORTLET-->
+				    <table class="record_properties">
+				        <tbody>
+				            <tr>
+				                <th>Id</th>
+				                <td>{{ entity.id }}</td>
+				            </tr>
+				            <tr>
+				                <th>Vendorname</th>
+				                <td>{{ entity.vendorName }}</td>
+        {% for quickProfile in quickProfiles %}
+            <tr>
+                <td >{{ quickProfile.id }}</td>
+                <td>
+                </td>
+            </tr>
+        {% endfor %}                
+				            </tr>
+				        </tbody>
+				    </table>
+					<ul class="record_actions">
+					    <li>
+					        <a href="{{ path('vendor') }}">
+					            Back to the list
+					        </a>
+					    </li>
+					    <li>
+					        <a href="{{ path('vendor_edit', { 'slug': entity.slug }) }}">
+					            Edit
+					        </a>
+					    </li>
+					    <li>{{ form(delete_form) }}</li>
+					</ul>
+					<!-- END PORTLET-->
+				</div>
+			</div>
+			{% endblock %}
+			{# <!-- END PAGE CONTENT--> #} 			
+

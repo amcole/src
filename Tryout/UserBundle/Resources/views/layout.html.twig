@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.0.3
+Version: 1.5.5
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Metronic | Login Options - Login Form 2</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<meta name="MobileOptimized" content="320">
+
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+{% block stylesheets %} 
+ {% stylesheets 
+ 	'bundles/cabinet/assets/plugins/font-awesome/css/font-awesome.min.css' 
+ 	'bundles/cabinet/assets/plugins/bootstrap/css/bootstrap.min.css'
+ 	'bundles/cabinet/assets/plugins/uniform/css/uniform.default.css'
+  filter='cssrewrite' %}
+ <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+ {% endstylesheets %}
+ <!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+ {% stylesheets 
+ 	'bundles/cabinet/assets/plugins/select2/select2_metro.css' 
+ 	filter='cssrewrite'
+   %}
+ <link  rel="stylesheet"  type="text/css" href="{{ asset_url }}" />
+ {% endstylesheets %}
+ <!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME STYLES -->
+  {% stylesheets 
+ 	'bundles/cabinet/assets/css/style-metronic.css' 
+ 	'bundles/cabinet/assets/css/style.css'
+ 	'bundles/cabinet/assets/css/style-responsive.css'
+ 	'bundles/cabinet/assets/css/plugins.css'
+  filter='cssrewrite' %}
+ <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+ {% endstylesheets %}
+ 
+   {% stylesheets 
+ 	'bundles/cabinet/assets/css/themes/default.css' 
+  filter='cssrewrite' %}
+ <link href="{{ asset_url }}" rel="stylesheet" type="text/css" id="style_color" />
+ {% endstylesheets %}
+ 
+   {% stylesheets 
+ 	'bundles/cabinet/assets/css/pages/login-soft.css' 
+ 	'bundles/cabinet/assets/css/custom.css'
+  filter='cssrewrite' %}
+ <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+ {% endstylesheets %} 
+
+{% endblock %}
+
+
+<!-- END THEME STYLES -->
+
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
+
+
+
+	{% block body %}
+		{{ 	block('fos_user_content') }}
+		
+		{% block javascripts %}
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+	<script src="assets/plugins/respond.min.js"></script>
+	<script src="assets/plugins/excanvas.min.js"></script> 
+	<![endif]-->
+{% javascripts 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery-1.10.2.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery-migrate-1.2.1.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/bootstrap/js/bootstrap.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery.blockui.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery.cokie.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/uniform/jquery.uniform.min.js' 
+								
+%}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+{% javascripts 
+		'@CabinetBundle/Resources/public/assets/plugins/jquery-validation/dist/jquery.validate.min.js' 
+		'@CabinetBundle/Resources/public/assets/plugins/backstretch/jquery.backstretch.min.js' 
+%}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+{% javascripts 
+		'@CabinetBundle/Resources/public/assets/plugins/select2/select2.min.js' 
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+{% javascripts 
+		'@CabinetBundle/Resources/public/assets/scripts/app.js' 
+		'@CabinetBundle/Resources/public/assets/scripts/login-soft.js' 
+%}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<script>
+		jQuery(document).ready(function() {     
+		  App.init();
+		  Login.init();
+		});
+	</script>
+<!-- END JAVASCRIPTS -->
+
+{% endblock %}
+	{% endblock %}
+
+
+</body>
+<!-- END BODY -->
+</html>
+

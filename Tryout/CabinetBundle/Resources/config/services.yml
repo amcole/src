@@ -1,0 +1,13 @@
+parameters:
+#    cabinet.example.class: Tryout\CabinetBundle\Example
+
+services:
+    tryout_cabinet.reporting.user_report_manager:
+        class: Tryout\CabinetBundle\Reporting\UserReportManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+    tryout_cabinet.messenger.flash:
+        class: Tryout\CabinetBundle\Messenger\Flash
+        arguments: ["@session"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response}

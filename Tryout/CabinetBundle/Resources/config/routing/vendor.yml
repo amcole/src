@@ -1,0 +1,34 @@
+vendor:
+    pattern:  /
+    defaults: { _controller: "CabinetBundle:Vendor:index" }
+
+vendor_show:
+    pattern:  /{slug}/show
+    defaults: { _controller: "CabinetBundle:Vendor:show" }
+
+vendor_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetBundle:Vendor:new" }
+
+vendor_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetBundle:Vendor:create" }
+    requirements: { _method: post }
+
+vendor_edit:
+    pattern:  /{slug}/edit
+    defaults: { _controller: "CabinetBundle:Vendor:edit" }
+
+vendor_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetBundle:Vendor:update" }
+    requirements: { _method: post|put }
+
+vendor_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetBundle:Vendor:delete" }
+    requirements: { _method: post|delete }
+
+vendor_ddr:
+    pattern:  /ddr
+    defaults: { _controller: "CabinetBundle:Vendor:ddr" }

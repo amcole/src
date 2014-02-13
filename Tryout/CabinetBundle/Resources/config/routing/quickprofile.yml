@@ -1,0 +1,39 @@
+quickprofile:
+    pattern:  /
+    defaults: { _controller: "CabinetBundle:QuickProfile:index" }
+
+quickprofile_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetBundle:QuickProfile:show" }
+
+quickprofile_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetBundle:QuickProfile:new" }
+
+#quickprofile_create:
+ #   pattern:  /create
+  #  defaults: { _controller: "CabinetBundle:QuickProfile:create" }
+   # #requirements: { _method: post }
+
+quickprofile_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetBundle:QuickProfile:edit" }
+
+quickprofile_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetBundle:QuickProfile:update" }
+    requirements: { _method: post|put }
+
+quickprofile_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetBundle:QuickProfile:delete" }
+    requirements: { _method: post|delete }
+
+
+quickprofile_complete:
+    pattern:  /{id}/complete
+    defaults: { _controller: "CabinetBundle:Event:complete" }
+    
+quickprofile_incomplete:
+    pattern:  /{id}/incomplete
+    defaults: { _controller: "CabinetBundle:Event:incomplete" }

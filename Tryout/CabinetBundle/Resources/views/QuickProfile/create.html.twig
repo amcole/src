@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>QuickProfile creation</h1>
+{#
+	<form action="{{ path('create') }}" method="POST">
+    {{ form_row(form.vendorMultiLocation) }}
+    {{ form_row(form.vendorIndustry) }}
+    {{ form_row(form.publicCompany) }}
+    {{ form_row(form.numLevelsToOwner) }}
+    {{ form_row(form.descCompanyCulture) }}
+    {{ form_row(form.peerlessService) }}
+    {{ form_row(form.client) }}
+    
+
+    <input type="submit" value="Register!" />#}
+    
+    
+                <form action="{{ path('create') }}" method="POST">
+                    {{ form_errors(form) }}
+                
+ 
+    {{ form_row(form.publicCompany) }}
+    {{ form_row(form.descCompanyCulture) }}
+ 
+    
+        {{ form_rest(form) }}
+    
+                <input type="submit" value="Create!" />
+            </form>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+<?php
+
+namespace Tryout\CabinetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+
+/**
+ * VendorProfile
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Tryout\CabinetBundle\Entity\VendorProfileRepository")
+ */
+class VendorProfile
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vendorMainContact", type="string", length=255)
+     */
+    private $vendorMainContact;
+	
+	/**
+     * @ORM\OneToOne(targetEntity="Vendor", inversedBy="vendorProfiles")
+     * @ORM\JoinColumn(name="vendor_id", referencedColumnName="id")
+     */
+    protected $vendor;
+
+    /**
+     * @ORM\OneToOne(targetEntity="\Tryout\CabinetBundle\Entity\ManagementProfile", mappedBy="vendorprofile")
+	 * @ORM\OneToOne(targetEntity="\Tryout\CabinetBundle\Entity\ContactProfile", mappedBy="vendorprofile")
+	 * @ORM\OneToOne(targetEntity="\Tryout\CabinetBundle\Entity\ServiceProfile", mappedBy="vendorprofile")
+     */
+    protected $profiles;
+
+	public function __construct()
+	{
+    $this->profiles = new ArrayCollection();
+	}
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set vendorMainContact
+     *
+     * @param string $vendorMainContact
+     * @return VendorProfile
+     */
+    public function setVendorMainContact($vendorMainContact)
+    {
+        $this->vendorMainContact = $vendorMainContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get vendorMainContact
+     *
+     * @return string 
+     */
+    public function getVendorMainContact()
+    {
+        return $this->vendorMainContact;
+    }
+
+    /**
+     * Set profiles
+     *
+     * @param \Tryout\CabinetBundle\Entity\ManagementProfile $profiles
+     * @return VendorProfile
+     */
+    public function setProfiles(\Tryout\CabinetBundle\Entity\ManagementProfile $profiles = null)
+    {
+        $this->profiles = $profiles;
+    
+        return $this;
+    }
+
+    /**
+     * Get profiles
+     *
+     * @return \Tryout\CabinetBundle\Entity\ManagementProfile 
+     */
+    public function getProfiles()
+    {
+        return $this->profiles;
+    }
+}

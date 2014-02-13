@@ -1,0 +1,13 @@
+	{% extends "UserBundle::layout.html.twig" %}
+	{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+	
+		<div class="form-actions">
+
+			<button type="submit" class="btn blue pull-right" id="_submit" name="_submit" 
+				href="{{ path('login') }}">
+			Login using linkedin <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>

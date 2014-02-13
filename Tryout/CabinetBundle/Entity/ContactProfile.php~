@@ -1,0 +1,152 @@
+<?php
+
+namespace Tryout\CabinetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ContactProfile
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Tryout\CabinetBundle\Entity\ContactProfileRepository")
+ */
+class ContactProfile
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mainContact", type="string", length=255)
+     */
+    private $mainContact;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="secondContact", type="string", length=255)
+     */
+    private $secondContact;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="headquarters", type="string", length=255)
+     */
+    private $headquarters;
+
+    /**
+     * @ORM\OneToOne(targetEntity="VendorProfile", inversedBy="profiles")
+     * @ORM\JoinColumn(name="vendorprofile_id", referencedColumnName="id")
+     */
+    protected $vendorProfile;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set mainContact
+     *
+     * @param string $mainContact
+     * @return ContactProfile
+     */
+    public function setMainContact($mainContact)
+    {
+        $this->mainContact = $mainContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get mainContact
+     *
+     * @return string 
+     */
+    public function getMainContact()
+    {
+        return $this->mainContact;
+    }
+
+    /**
+     * Set secondContact
+     *
+     * @param string $secondContact
+     * @return ContactProfile
+     */
+    public function setSecondContact($secondContact)
+    {
+        $this->secondContact = $secondContact;
+    
+        return $this;
+    }
+
+    /**
+     * Get secondContact
+     *
+     * @return string 
+     */
+    public function getSecondContact()
+    {
+        return $this->secondContact;
+    }
+
+    /**
+     * Set headquarters
+     *
+     * @param string $headquarters
+     * @return ContactProfile
+     */
+    public function setHeadquarters($headquarters)
+    {
+        $this->headquarters = $headquarters;
+    
+        return $this;
+    }
+
+    /**
+     * Get headquarters
+     *
+     * @return string 
+     */
+    public function getHeadquarters()
+    {
+        return $this->headquarters;
+    }
+
+    /**
+     * Set vendorProfile
+     *
+     * @param \Tryout\CabinetBundle\Entity\VendorProfile $vendorProfile
+     * @return ContactProfile
+     */
+    public function setVendorProfile(\Tryout\CabinetBundle\Entity\VendorProfile $vendorProfile = null)
+    {
+        $this->vendorProfile = $vendorProfile;
+    
+        return $this;
+    }
+
+    /**
+     * Get vendorProfile
+     *
+     * @return \Tryout\CabinetBundle\Entity\VendorProfile 
+     */
+    public function getVendorProfile()
+    {
+        return $this->vendorProfile;
+    }
+}

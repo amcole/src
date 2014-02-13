@@ -1,0 +1,46 @@
+{% extends 'CabinetBundle::VendorProfilelayout.html.twig' %} 
+
+{% block title %}<title>Vendors</title>{% endblock %}
+
+
+{% block page_content -%}
+    <h1>Vendor list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Vendorname</th>
+                <th>Vendorindustry</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('vendor_show', { 'slug': entity.slug }) }}">{{ entity.slug }}</a></td>
+                <td>{{ entity.vendorName }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('vendor_show', { 'slug': entity.slug }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('vendor_edit', { 'slug': entity.slug }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('vendor_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% include 'CabinetBundle:Default:flashMessages.html.twig' %}
+    {% endblock %}
